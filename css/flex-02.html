@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* (viewport width) */
+            width: 100vw;
+            height: 100vh;
+            background-color: aqua;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #left {
+            background-color: blue;
+            flex-grow: 3;
+        }
+
+        #right {
+            background-color: red;
+            flex-grow: 7;
+        }
+
+        .item {
+            background-color: blueviolet;
+        }
+
+        =
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div class="item">1</div>
+        <div id="container">
+            <div id="left">2-1</div>
+            <div id="right">2-2</div>
+        </div>
+        <div class="item">3</div>
+
+    </div>
+
+</body>
+
+</html>

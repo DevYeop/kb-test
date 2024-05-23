@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+      // 홀수 구구단
+      document.getElementById('gugu_odd').onclick = function () {
+        // 이전에 출력되었던 구구단 지우기
+        document.getElementById('gugudan').innerHTML = '';
+
+        // result에 문자열로 출력해서 이걸 innerHTML할 예정
+        let result = '';
+
+        // 단수 선택 = 사용자가 입력한 input text의 값 선택
+        let dan = document.getElementById('dan').value;
+
+        result += '<h3>' + '[홀수 구구단 ' + dan + '단]' + '<h3>';
+
+        for (i = 0; i <= 9; i++) {
+          result +=
+            dan + 'X' + (2 * i + 1) + '=' + dan * (2 * i + 1) + '<br>';
+        }
+        document.getElementById('gugudan').innerHTML = result;
+      };
+    };
+  </script>
+</head>
+
+<body>
+  <form action="">
+    <h2>구구단</h2>
+    <input type="text" id="dan" placeholder="몇 단?" />
+    <input type="button" id="gugu" value="구구단" />
+    <input type="button" id="gugu_odd" value="홀수 구구단" />
+    <br />
+    <div id="gugudan">
+      <!-- 구구단 출력되는 div -->
+    </div>
+  </form>
+</body>
+
+</html>

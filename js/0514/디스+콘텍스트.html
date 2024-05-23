@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        let name = '민수'; // 전역변수
+        const food2 = '딸기'; // 전역변수
+
+        function textFunc() {
+            const name2 = '상엽' // 지역변수
+
+            name = '상엽2' // 전역변수 (태어난 곳을 봐야한다)
+            // 
+
+        }
+
+
+        let person = {
+            name: '상엽',
+            eat: function (food) { //apple
+                console.log(name + ' 이/가');
+                console.log(this.name + ' 이/가');
+                console.log(food + '을/를 먹습니다.');
+            }
+        };
+
+        /**
+         *  콘텍스트(Context)의 일상 예
+            할머니: 나는 허리가 아프다 ( 나 === 할머니 )
+            아버지: 나는 다리가 아프다 ( 나 === 아버지 )
+            어머니: 나는 머리가 아프다 ( 나 === 어머니 )
+         */
+
+        person.eat('apple');
+        console.log('---------------------');
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!-- https://velog.io/@hoje15v/CSSposition-%EC%86%8D%EC%84%B1-relative-absolute-fixed%EC%97%90-%EB%8C%80%ED%95%B4-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90 -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 3px blue solid;
+            width: 100px;
+            height: 100px;
+        }
+
+        div.relative {
+            position: relative;
+        }
+
+        div.relative.top-left {
+            left: 50px;
+            top: 50px;
+        }
+
+        p.absolute {
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p class="absolute">div.absolute</p> -->
+    <!-- 부모가 따로 없기 때문에 가장 큰 부모인 뷰포트를 기준 -->
+
+    <div>div</div>
+    <div class="relative">div.relative</div>
+
+    <!-- relative 속성은 static의 원래 위치(기존의 위치)부터 계산한다.
+relative를 적용하는 것만으로는 어느 위치로 이동 하지는 않는다.
+위치를 이동시켜주는 top, right, bottom, left 프로퍼티가 있어야 원래의 위치에서 이동할 수 있다. 
+-->
+    <div class="relative top-left">div.relative.top-left</div>
+
+
+</body>
+
+</html>

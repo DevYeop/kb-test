@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        #container,
+        #container2 {
+            display: flex;
+        }
+
+        #inner_container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #left {
+            flex-grow: 1;
+        }
+
+        #right {
+            flex-grow: 2;
+        }
+
+
+
+        div>div {
+            background-color: white;
+            margin: 10px;
+            padding: 4px;
+            border-width: 1.5px;
+            border-color: black;
+            border-style: groove;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos autem quam fuga deserunt quas quos blanditiis
+        provident tempora soluta. Iusto, officia magnam. Quidem ratione cum magni dolore. Ea, at qui.
+    </p>
+    <div id="container">
+        <div>menu_1</div>
+        <div>menu_2</div>
+        <div>menu_3</div>
+        <div>menu_4</div>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos autem quam fuga deserunt quas quos blanditiis
+        provident
+        tempora soluta. Iusto, officia magnam. Quidem ratione cum magni dolore. Ea, at qui.
+    </p>
+    <hr>
+
+    <div>
+        <div id="container2">1</div>
+        <div id="inner_container">
+            <div id="left">2-1</div>
+            <div id="right">2-2</div>
+        </div>
+        <div>3</div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #list {
+            width: 600px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #list>thead>tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1 type="text">{{message}}</h1>
+        <br>
+        <input type="text" v-model="name">
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        let vm = Vue.createApp({
+            data() {
+                return {
+                    message: "v-bind 디렉티브",
+                    name: 'v-bind 디렉티브',
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

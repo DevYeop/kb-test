@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #list {
+            width: 600px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #list>thead>tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{ message }}</h2>
+        <h2 v-text="message"></h2>
+
+        <br />
+        <input type="text" v-bind:value="message">
+        <input type="text" :value="message">
+
+        <br />
+        <img v-bind:src="imagePath" />
+        <img :src="imagePath" />
+
+        <br />
+        <input type="text" v-model="name">
+        <br />
+        입력한 값: <span>{{ name }}</span>
+
+        <div>
+            <h2>취미생활</h2>
+            <label>
+                <input type="checkbox" value="A" v-model="hobby"> 운동
+            </label>
+            <label>
+                <input type="checkbox" value="B" v-model="hobby"> 독서
+            </label>
+            <label>
+                <input type="checkbox" value="C" v-model="hobby"> 음악
+            </label>
+            <label>
+                <input type="checkbox" value="D" v-model="hobby"> 댄스
+            </label>
+            <label>
+                <input type="checkbox" value="E" v-model="hobby"> 역사
+            </label>
+        </div>
+
+        <div>
+            <h2>상품 분류 선택</h2>
+            <select v-model="category">
+                <option value="">----상품 분류를 선택하세요.</option>
+                <option value="C01">레저</option>
+                <option value="C02">가전</option>
+                <option value="C03">음식</option>
+                <option value="C04">도서</option>
+                <option value="C05">주방</option>
+            </select>
+        </div>
+
+        <hr />
+        <div>
+            선택한 취미: {{ hobby.join(',') }}
+            <br />
+            선택한 상품 분류: {{ category }}
+        </div>
+
+        <hr />
+        위의 내용에 동의하십니까?
+        <input type="checkbox" v-model="agree" true-value="yes" false-value="no">
+
+        <hr />
+        <span>선택된 값: {{ agree }}</span>
+
+        <hr />
+        <input type="text" v-model="name">
+        입력한 값 (normal): <span>{{ name }}</span>
+
+        <br>
+
+        <input type="text" v-model="nickname">
+        입력한 값 (nickname): <span>{{ nickname }}</span>
+
+        <hr />
+        <!-- <input type="text" v-model.lazy="nameLazy">
+        <span> 입력된 값 (lazy): {{ nameLazy }}</span> -->
+
+        <input type="text" v-model.trim="nameLazy">
+        <span> 입력된 값 (trim): {{ nameLazy }} </span>
+
+        <hr />
+        <input type="text" :value="name" @input="changeName">
+        이름: <span>{{ name }}</span>
+
+        <hr />
+        예금액: <input type="text" v-model="amount">
+        <img v-show="amount < 0" src="https://contactsvc.bmaster.kro.kr/img/error.png" title="마이너스는 허용하지 않습니다."
+            style="width: 30px; height: 30px; vertical-align: middle">
+        <span v-show="amount < 0"> {{ amount }} 마이너스는 허용하지 않습니다</span>
+
+        <br>
+        <img v-if="amount < 0" src="https://contactsvc.bmaster.kro.kr/img/error.png" title="마이너스는 허용하지 않습니다."
+            style="width: 30px; height: 30px; vertical-align: middle">
+        <span v-show="amount < 0"> {{ amount }} 마이너스는 허용하지 않습니다</span>
+
+        <br>
+        잔고: <input v-model="balance">
+        <br />
+        회원님의 등급:
+        <div>
+            <span v-if="balance > 1000000">Gold</span>
+            <span v-else-if="balance >= 500000">Silver</span>
+            <span v-else-if="balance >= 200000">Bronze</span>
+            <span v-else>Basic</span>
+        </div>
+
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                </tr>
+            </thead>
+            <tbody id="contacts">
+                <!-- 배열[객체] -->
+                <tr v-for="(contact, index) in contacts" :key="contact.no">
+                    <td>{{ contact.no }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.tel }}</td>
+                    <td>{{ index }}</td>
+                </tr>
+
+                <template v-for="(contact, index) in contacts" :key="contact.no">
+                    <tr>
+                        <td>{{contact.no}}</td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.tel}}</td>
+                    </tr>
+                    <tr class="divider" v-if="index % 4 === 3">
+                        <td colspan="3"></td>
+                    </tr>
+                </template>
+
+
+            </tbody>
+        </table>
+
+
+        <select id="regions">
+            <!-- {객체} -->
+            <option disabled selected>지역 선택</option>
+            <option v-for="(value, key) in regions" :value="value" :key="key">{{ value }}</option>
+        </select>
+
+
+        <table id="list">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                </tr>
+            </thead>
+            <tbody id="contacts">
+                <template v-for="(contact, index) in contacts" :key="contact.no">
+                    <tr>
+                        <td>{{contact.no}}</td>
+                        <td>{{contact.name}}</td>
+                        <td>{{contact.tel}}</td>
+                    </tr>
+                    <tr class="divider" v-if="index % 4 === 3">
+                        <td colspan="3"></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        let vm = Vue.createApp({
+
+            data() {
+                return {
+                    message: "v-bind 디렉티브",
+                    nickname: 'nickname의 초기값',
+                    imagePath: "https://contactsvc.bmaster.kro.kr/photos/18.jpg",
+                    name: 'name의 초기값',
+                    hobby: [],
+                    category: '',
+                    agree: 'no',
+                    nameLazy: '',
+                    amount: -1,
+                    balance: 0,
+                    contacts: [
+                        { no: 1012, name: '정국', tel: '010-3456-8298' },
+                        { no: 1013, name: '제이홉', tel: '010-3456-8297' },
+                        { no: 1014, name: '슈가', tel: '010-3456-8296' },
+                        { no: 1014, name: '슈가2', tel: '010-3456-8296' },
+                        { no: 1014, name: '슈가3', tel: '010-3456-8296' },
+                        { no: 1014, name: '슈가4', tel: '010-3456-8296' },
+                        { no: 1011, name: 'RM', tel: '010-3456-8299' },
+                    ],
+                    regions: {
+                        A: 'Asia',
+                        B: 'America',
+                        C: 'Europe',
+                        D: 'Africa',
+                        E: 'Oceania'
+                    }
+                };
+            },
+            methods: {
+                changeName(e) {
+                    this.name = e.target.value;
+                }
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            font-size: 16px;
+            /* 기본 폰트 크기 설정 */
+        }
+
+        .box {
+            width: 10em;
+            /* 상위 요소(font-size: 16px)의 10배 크기 */
+            height: 3em;
+            /* 상위 요소(font-size: 16px)의 3배 크기 */
+            line-height: 3em;
+            /* 상위 요소(font-size: 16px)의 3배 크기 */
+            margin-bottom: 1rem;
+            /* root 요소(font-size: 16px)의 크기 */
+            padding: 1rem;
+            /* root 요소(font-size: 16px)의 크기 */
+        }
+
+        .box1 {
+            font-size: 1.5em;
+            /* 상위 요소(font-size: 16px)의 1.2배 크기 */
+        }
+
+        .box2 {
+            font-size: 1.5rem;
+            /* root 요소(font-size: 16px)의 1.5배 크기 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box box1">Box 1
+            <div class="box box1">Box 1</div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="box box2">Box 2
+            <div class="box box2">Box 2</div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        const grade = 'A';
+
+        let product = {
+            name: '7D 건조 망고',
+            유형: '당절임',
+            성분: '망고, 설탕, 메타중아황산나트륨, 치자황색소',
+            원산지: '필리핀',
+            grade: grade,
+        };
+
+        // 객체의 속성을 접근하는 두가지 방법
+        console.log(product.name);
+        console.log(product['name']);
+        console.log(product.grade);
+        console.log(product['grade']);
+
+        for (let starcraft in product) { // Q : 객체 순회 결과 변수에는 무엇이 담기나?
+            console.log(starcraft); // [tip] : 리팩토링은 F2
+            starcraft;
+            starcraft;
+            starcraft;
+            starcraft;
+        }
+
+        // for (let name in product) { //  X : 변수의 이름이 키값으로 사용되어 버려서 undefined
+        //     console.log(product.name);
+        // }
+
+        for (let key in product) { // O : 변수가 가지고 있는 값을 키값으로 사용함
+            console.log(product[key])
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

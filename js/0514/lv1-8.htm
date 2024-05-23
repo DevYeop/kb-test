@@ -1,0 +1,50 @@
+<script>
+
+    /**
+     * 
+     * 
+     * 
+     
+    
+    1.
+    function () {
+    alert('함수 호출');
+    };
+    를 콜백함수로 전달하고, 
+    반복 호출할 회수를 매개변수로 전달하여 
+    그 회수만큼 콜백 함수를 호출하는 JS를 작성하세요.
+    
+    2.
+    위의 예제를 익명함수로 콜백함수를 정의하는 것으로 변경하세요.
+    
+    
+     * 
+     * 
+     * 
+     **/
+
+    // 함수를 선언합니다.
+    function callTenTimes(callback, repeat) {
+        for (let i = 0; i < repeat; i++) {
+            callback();
+        }
+    }
+
+
+    function consoleTest() {
+        console.log('함수 호출');
+    }
+
+    callTenTimes(consoleTest, 5)
+
+    callTenTimes(function () {
+        console.log('함수 호출');
+    }, 10);
+
+
+    // case3: arrow-fuction으로 대체하기
+    // callTenTimes(() => { console.log('함수 호출') }, 10);
+
+    // case4: arrow-fuction으로 대체하면서 갈매기 없애기
+    callTenTimes(() => console.log('함수 호출'), 10);
+</script>

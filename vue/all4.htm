@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #list {
+            width: 600px;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #list td,
+        #list th {
+            border: 1px solid black;
+            text-align: center;
+        }
+
+        #list>thead>tr {
+            color: yellow;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        nmb1: <input type="text" v-model.number="num1" /><br />
+        nmb2: <input type="text" v-model.number="num2" /><br />
+
+        <!-- 두 수의 합: <span>{{sum}}</span><br /> -->
+        <hr>
+
+
+        1보다 큰 수: <input type="text" v-model.number="num" /><br />
+        1부터 입력한 값까지의 합: <span>{{factorial}}</span><br />
+        1부터 입력한 값까지의 합: <span>{{factorial}}</span><br />
+        1부터 입력한 값까지의 합: <span>{{factorial}}</span><br />
+        1부터 입력한 값까지의 합: <span>{{total()}}</span><br />
+        1부터 입력한 값까지의 합: <span>{{total()}}</span><br />
+        1부터 입력한 값까지의 합: <span>{{total()}}</span><br />
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        let vm = Vue.createApp({
+            name: "App",
+            data() {
+                return {
+                    num: 0,
+                    num1: 0,
+                    num2: 0,
+                };
+            },
+            computed: {
+                sum() {
+                    console.log("## num(computed): " + this.num);
+                    let n1 = parseInt(this.num1);
+                    let n2 = parseInt(this.num2);
+                    if (Number.isNaN(n1)) {
+                        console.log("똑바로 입력해라");
+                        return 0;
+                    }
+                    return n1 + n2
+                },
+
+                factorial() {
+                    console.log("## num(computed): " + this.num);
+                    let n = parseInt
+                        (this.num);
+                    if (Number.isNaN(n)) return 0;
+                    return (n * (n + 1)) / 2;
+                },
+            },
+            methods: {
+                total() {
+                    console.log("## num(메서드): " + this.num);
+                    let n = parseInt
+                        (this.num);
+                    if (Number.isNaN(n)) return 0;
+                    return (n * (n + 1)) / 2;
+                },
+
+            },
+        }).mount("#app");
+    </script>
+
+</body>
+
+</html>
